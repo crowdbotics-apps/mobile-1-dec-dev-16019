@@ -10,6 +10,21 @@ class CustomText(models.Model):
     title = models.CharField(
         max_length=150,
     )
+    bvbvnbvnbv = models.BigIntegerField(
+        null=True,
+        blank=True,
+    )
+
+    def __str__(self):
+        return self.title
+
+    @property
+    def api(self):
+        return f"/api/v1/customtext/{self.id}/"
+
+    @property
+    def field(self):
+        return "title"
 
     def __str__(self):
         return self.title
@@ -36,6 +51,14 @@ class CustomText(models.Model):
 
 class HomePage(models.Model):
     body = models.TextField()
+
+    @property
+    def api(self):
+        return f"/api/v1/homepage/{self.id}/"
+
+    @property
+    def field(self):
+        return "body"
 
     @property
     def api(self):
